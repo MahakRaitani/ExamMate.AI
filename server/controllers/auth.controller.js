@@ -44,8 +44,14 @@ export const googleAuth = async (req, res) => {
 // REGISTER
 export const register = async (req, res) => {
   try {
-
     const { name, email, password } = req.body;
+
+    // ✅ ADD THIS CHECK
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        message: "All fields are required"
+      });
+    }
 
     const existingUser = await UserModel.findOne({ email });
 
@@ -78,11 +84,11 @@ export const register = async (req, res) => {
     });
 
   } catch (error) {
+    console.error("REGISTER ERROR:", error); // 🔥 IMPORTANT
 
     return res.status(500).json({
       message: error.message
     });
-
   }
 };
 

@@ -22,7 +22,7 @@ function Pricing() {
       setPaying(true);
 
       const result = await axios.post(
-        serverURL + "/api/credit/order",
+        serverURL + "/api/credits/order",
         { amount },
         { withCredentials: true }
       );
