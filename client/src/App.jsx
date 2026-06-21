@@ -10,6 +10,7 @@ import Notes from "./pages/Notes";
 import Pricing from "./pages/Pricing";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailed from "./pages/PaymentFailed";
+export const serverURL = "https://exammate-aiserver.onrender.com";
 
 function App() {
 
