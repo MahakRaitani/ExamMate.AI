@@ -169,7 +169,7 @@ function FinalResult({ result }) {
         <section>
           <SectionHeader icon="📈" title="Visual Charts" color="indigo" />
 
-          <RechartSetUp charts={result.charts} />
+          <RechartSetup charts={result.charts} />
 
           <p className="mt-3 text-xs text-gray-500 italic">
             ℹ️ You can save this chart by taking a screenshot.
