@@ -40,7 +40,10 @@ app.use(cookieParser());
 // ===================================
 app.use(
   cors({
-    origin: "https://exammate-aiclient.onrender.com",
+    origin: [
+      "http://localhost:5173",
+      "https://exammate-aiclient.onrender.com",
+    ],
     credentials: true,
   })
 );
