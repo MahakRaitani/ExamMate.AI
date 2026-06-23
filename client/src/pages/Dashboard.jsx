@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import Footer from "../components/Footer";
+import CustomizePanel from "../components/CustomizePanel";
+import CustomizeButton from "../components/CustomizeButton";
 
 import {
   Sparkles,
@@ -15,6 +17,9 @@ import {
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [themeColor, setThemeColor] = useState("#2563eb");
+const [themeFont, setThemeFont] = useState("Poppins");
+const [open, setOpen] = useState(false);
 
   const cards = [
     {
@@ -41,7 +46,14 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f8ff] flex">
+    <div
+className="min-h-screen bg-[#f4f8ff] flex"
+
+style={{
+fontFamily:themeFont
+}}
+
+>
 
       {/* =========================
           SIDEBAR
@@ -83,17 +95,14 @@ const Dashboard = () => {
 
             <div>
 
-              <h1
-                className="
-                text-2xl font-black
-                bg-gradient-to-r
-                from-blue-600
-                to-cyan-500
-                bg-clip-text text-transparent
-                "
-              >
-                ExamMate.AI
-              </h1>
+             <h1
+className="text-2xl font-black"
+style={{
+color:themeColor
+}}
+>
+ExamMate.AI
+</h1>
 
               <p className="text-sm text-gray-500">
                 Smart Study Dashboard
@@ -213,9 +222,16 @@ const Dashboard = () => {
 
                 <span className="h-2 w-2 rounded-full bg-cyan-500"></span>
 
-                <p className="text-sm font-medium text-blue-700">
-                  Lets Learn Something New Today
-                </p>
+            <p
+className="text-sm font-medium"
+style={{
+color:themeColor
+}}
+>
+
+Lets Learn Something New Today
+
+</p>
 
               </motion.div>
 
@@ -285,81 +301,173 @@ const Dashboard = () => {
           </motion.div>
 
           {/* ACTION CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-12">
+      {/* ACTION CARDS + CUSTOMIZER */}
 
-            {cards.map((card, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                }}
-                onClick={() => navigate(card.route)}
-                className="
-                relative
-                overflow-hidden
-                rounded-[30px]
-                bg-white
-                border border-blue-100
-                p-8
-                cursor-pointer
-                shadow-[0_15px_40px_rgba(59,130,246,0.08)]
-                "
-              >
+<div className="grid lg:grid-cols-4 gap-8 mt-12">
 
-                {/* GLOW */}
-                <div
-                  className={`
-                  absolute top-0 right-0
-                  h-40 w-40 rounded-full
-                  blur-3xl opacity-20
-                  bg-gradient-to-r ${card.color}
-                  `}
-                ></div>
 
-                <div className="relative z-10">
+{/* Left Side */}
+<div className="lg:col-span-3">
 
-                  <div
-                    className={`
-                    h-16 w-16 rounded-2xl
-                    flex items-center justify-center
-                    text-white
-                    bg-gradient-to-r ${card.color}
-                    shadow-lg
-                    `}
-                  >
-                    {card.icon}
-                  </div>
+<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-                  <h2 className="text-2xl font-bold text-gray-800 mt-6">
-                    {card.title}
-                  </h2>
+{cards.map((card, index) => (
 
-                  <p className="text-gray-500 mt-3 leading-relaxed">
-                    {card.desc}
-                  </p>
+<motion.div
+key={index}
 
-                  <div
-                    className="
-                    flex items-center gap-2
-                    mt-6
-                    text-sm font-semibold
-                    text-blue-600
-                    "
-                  >
-                    Open
-                    <ArrowRight size={16} />
-                  </div>
+initial={{ y: 50, opacity: 0 }}
+animate={{ y: 0, opacity: 1 }}
+transition={{ delay: index * 0.1 }}
 
-                </div>
+whileHover={{
+y:-8,
+scale:1.02
+}}
 
-              </motion.div>
-            ))}
+onClick={() => navigate(card.route)}
 
-          </div>
+className="
+relative
+overflow-hidden
+rounded-[30px]
+bg-white
+border border-blue-100
+p-8
+cursor-pointer
+shadow-[0_15px_40px_rgba(59,130,246,0.08)]
+"
+>
+
+
+<div
+className={`
+absolute top-0 right-0
+h-40 w-40
+rounded-full
+blur-3xl
+opacity-20
+bg-gradient-to-r ${card.color}
+`}
+></div>
+
+
+<div className="relative z-10">
+
+
+<div
+className={`
+h-16
+w-16
+rounded-2xl
+flex
+items-center
+justify-center
+text-white
+bg-gradient-to-r ${card.color}
+shadow-lg
+`}
+>
+
+{card.icon}
+
+</div>
+
+
+
+<h2 className="text-2xl font-bold text-gray-800 mt-6">
+
+{card.title}
+
+</h2>
+
+
+
+<p className="text-gray-500 mt-3">
+
+{card.desc}
+
+</p>
+
+
+
+<div
+
+className="
+flex
+items-center
+gap-2
+mt-6
+text-sm
+font-semibold
+"
+
+style={{
+color:themeColor
+}}
+
+>
+Open
+
+<ArrowRight size={16}/>
+
+</div>
+
+
+
+</div>
+
+
+</motion.div>
+
+))}
+
+</div>
+
+</div>
+
+
+
+
+
+
+<CustomizeButton
+
+open={open}
+setOpen={setOpen}
+
+/>
+<CustomizeButton
+
+open={open}
+setOpen={setOpen}
+
+/>
+
+
+{
+open && (
+
+<CustomizePanel
+
+themeColor={themeColor}
+setThemeColor={setThemeColor}
+
+themeFont={themeFont}
+setThemeFont={setThemeFont}
+
+setOpen={setOpen}
+
+/>
+
+)
+
+}
+
+
+
+
+</div>
 
         </div>
 
