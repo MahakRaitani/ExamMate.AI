@@ -1,9 +1,15 @@
+node_modules/
+
 client/node_modules/
 server/node_modules/
 
+.env
 client/.env
 server/.env
 
-.env
 dist/
 build/
+
+*.mp4
+*.mov
+*.avi
