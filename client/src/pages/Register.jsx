@@ -48,15 +48,15 @@ const Register = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
       {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
-      >
-        <source src="https://www.pexels.com/download/video/6153453/" type="video/mp4" />``
-      </video>
+     <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute top-0 left-0 w-full h-full object-cover"
+>
+  <source src="/bg_R.mp4" type="video/mp4" />
+</video>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>

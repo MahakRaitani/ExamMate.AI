@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { serverURL } from "../config";
 import { setUserData, clearUser } from "../redux/userSlice";
-
+import { FaGithub } from "react-icons/fa";
 function Footer() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -124,8 +124,20 @@ const handleSignOut = async () => {
             </li>
 
             <li className="text-gray-300 hover:text-white transition-colors">
-              support@examnotes.com
-            </li>
+  support@examnotes.com
+</li>
+
+<li>
+  <a
+    href="https://github.com/MahakRaitani"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center gap-2 text-gray-300 hover:text-white transition-colors"
+  >
+    <FaGithub className="text-lg" />
+    <span>GitHub</span>
+  </a>
+</li>
             
 
           </ul>
@@ -138,9 +150,11 @@ const handleSignOut = async () => {
       <div className="my-6 h-px bg-white/10" />
 
       {/* FOOTER TEXT */}
-      <p className="text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} ExamMate AI. All rights reserved.
-      </p>
+    <p className="text-center text-xs text-gray-500">
+  © {new Date().getFullYear()} ExamMate AI. All rights reserved.
+  <br />
+  Created by <span className="text-gray-300 font-medium">Mahak Raitani</span>
+</p>
       
     </motion.div>
   );

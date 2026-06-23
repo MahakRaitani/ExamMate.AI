@@ -141,9 +141,10 @@ transition
 
             {/* Fonts */}
 
-            <h3 className="font-semibold mb-3">
-                Fonts
-            </h3>
+            <div className="px-6 pt-5">
+    <h3 className="font-semibold mb-3">
+        Fonts
+    </h3>
 
 
 
@@ -219,16 +220,15 @@ ${themeFont === item
             </div>
 
 
-
+</div>
 
             {/* Colors */}
 
+<div className="px-6 pb-6">
+    <h3 className="font-semibold mt-7 mb-3">
+        Colors
+    </h3>
 
-            <h3 className="font-semibold mt-7 mb-3">
-
-                Colors
-
-            </h3>
 
 
 
@@ -282,7 +282,7 @@ ${themeColor === c
 
 
             </div>
-
+</div>
 
 
         </motion.div>

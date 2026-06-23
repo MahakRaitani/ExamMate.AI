@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -7,6 +7,9 @@ import Sidebar from '../components/Sidebar'
 import FinalResult from '../components/FinalResult'
 function Notes() {
   const navigate = useNavigate()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { userData } = useSelector((state) => state.user)
   const credits = userData?.credits || 0
   const [loading,setLoading]= useState(false)

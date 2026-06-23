@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import CustomizePanel from "../components/CustomizePanel";
 import CustomizeButton from "../components/CustomizeButton";
 
+import { Phone } from "lucide-react";
 import {
   Sparkles,
   FileText,
@@ -43,6 +44,14 @@ const [open, setOpen] = useState(false);
       color: "from-pink-500 to-rose-500",
       route: "/pricing",
     },
+    {
+    title: "Contact Us",
+    desc: "Need help? Reach out to our support team anytime.",
+    icon: <Phone size={28} />,
+    color: "from-green-500 to-emerald-500",
+    route: "/Contact",
+  },
+    
   ];
 
   return (
@@ -134,6 +143,7 @@ ExamMate.AI
               title="Buy Credits"
               onClick={() => navigate("/pricing")}
             />
+         
 
           </div>
 
